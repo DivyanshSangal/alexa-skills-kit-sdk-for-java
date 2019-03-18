@@ -75,13 +75,13 @@ attributes.
 
    @Override
    public boolean canHandle(HandlerInput input) {
-       Map<String, Object> persistentAttributes = handlerInput.getAttributesManager().getPersistentAttributes();
+       Map<String, Object> persistentAttributes = input.getAttributesManager().getPersistentAttributes();
        return persistentAttributes.get("foo").equals("bar");
    }
 
    @Override
    public Optional<Response> handle(HandlerInput input) {
-       Map<String, Object> persistentAttribues = handlerInput.getAttributesManager().getPersistentAttributes();
+       Map<String, Object> persistentAttribues = input.getAttributesManager().getPersistentAttributes();
        persistentAttributes.put("foo", "baz");
        return Optional.empty();
    }
